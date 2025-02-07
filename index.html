@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Gradient</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            transition: background 0.5s ease-in-out;
+        }
+
+        section {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            border-radius: 50px;
+            transition: 0.3s;
+        }
+
+        #btn {
+            background-color: #a521b4;
+            color: white;
+        }
+
+        #btn:hover {
+            background-color: #d53bed;
+        }
+
+        #btn2 {
+            background-color: #0895ed;
+            color: white;
+        }
+
+        #btn2:hover {
+            background-color: #1e637e;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: white;
+        }
+
+        .code {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <section>
+        <button id="btn" class="btn">Change Gradient 1</button>
+        <button id="btn2" class="btn">Change Gradient 2</button>
+    </section>
+
+    <h2>Click the buttons</h2>
+
+    <div class="code">
+        <p>BackgroundImage: <span id="gradientText">linear-gradient(to right, #ff7e5f, #feb47b)</span></p>
+    </div>
+
+    <script>
+        const btn1 = document.getElementById("btn");
+        const btn2 = document.getElementById("btn2");
+        const copudiv = document.querySelector(".code");
+        let rgb1 = '#ff7e5f'; 
+        let rgb2 = '#feb47b'; 
+
+        const HexaValue = () => {
+            let Hexacode = '0123456789abcdef';
+            let color = '#';
+            for (let i = 0; i < 6; i++) { 
+                color += Hexacode[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        };
+
+        const handlebtn1 = () => {
+            rgb1 = HexaValue();
+            btn1.innerHTML=rgb1;
+            document.body.style.background = `linear-gradient(to right, ${rgb1}, ${rgb2})`;
+            copudiv.innerHTML = `<p>BackgroundImage: <span id="gradientText">linear-gradient(to right, ${rgb1}, ${rgb2})</span></p>`;
+        };
+
+        const handlebtn2 = () => {
+            rgb2 = HexaValue();
+            btn2.innerHTML=rgb2;
+
+            document.body.style.background = `linear-gradient(to right, ${rgb1}, ${rgb2})`;
+            copudiv.innerHTML = `<p>BackgroundImage: <span id="gradientText">linear-gradient(to right, ${rgb1}, ${rgb2})</span></p>`;
+        };
+
+        btn1.addEventListener("click", handlebtn1);
+        btn2.addEventListener("click", handlebtn2);
+
+        copudiv.addEventListener("click",()=>{
+            navigator.clipboard.writeText(copudiv.innerHTML)
+        })
+
+    </script>
+
+</body>
+</html>
