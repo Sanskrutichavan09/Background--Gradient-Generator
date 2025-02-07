@@ -23,6 +23,5 @@ The **Background Gradient Generator** is a simple and interactive web tool that 
 ## 📸 Preview  
 [![Gradient Generator Preview](preview-image-url) ](https://kaleidoscopic-puffpuff-313cd7.netlify.app/) 
 
-> _Replace `preview-image-url` with an actual image link._
 
 ## 📂 Project Structure  
